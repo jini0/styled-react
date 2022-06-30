@@ -1,0 +1,74 @@
+$blue : #228be6;
+$gray : #495059;
+$pink : #f06595;
+@mixin  button-color($color) {
+    background: $color;
+    &:hover {
+        background: darken($color, 10%);
+    }
+    &.outline {
+        color: $color;
+        background: none;
+        border: 1px solid $color;
+        &:hover {
+            background: $color;
+            color: #fff;
+        }
+    }
+}
+.button {
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+
+    padding: 16px;
+    font-size: 18px;
+    background: $blue;
+    & + & {
+        margin-left: 10px;
+    }
+
+    //사이즈관리
+    &.large {
+        padding: 20px 50px;
+    }
+    &.medium {
+        padding: 10px 40px;
+    }
+    &.small {
+        padding: 5px 30px;
+    }
+    //색상관리
+    &.blue {
+        @include button-color($blue);
+        // background: $blue;
+        // &:hover {
+        //     background: darken($blue, 10%);
+        // }
+    }
+    &.pink {
+        @include button-color($pink);
+        // background: $pink;
+        // &:hover {
+        //     background: darken($pink, 10%);
+        // }
+    }
+    &.gray {
+        @include button-color($gray);
+        // background: $gray;
+        // &:hover {
+        //     background: darken($gray, 10%);
+        // }
+    }
+    &.fullWidth {
+        width: 100%;
+        & + & {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+}
